@@ -6,10 +6,83 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col">
-    div
+<form class="form-group" [formGroup]="form">
+
+  <div class="row my-5">
+    <div class="col col-md-8 mx-auto">
+
+        <div class="d-flex justify-content-between align-items-center border rounded border-secondary-subtle p-4 shadow">
+          <div>
+            <h3>Seo</h3>
+            <p>Programacion de una web responsive completa</p>
+          </div>
+          <div>
+            <h2>300 €</h2>
+          </div>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="checkbox" name="checkbox1" formControlName="checkbox1" (change)="calculateTotal()">
+            <label class="form-check-label">Anadir</label>
+          </div>
+        </div>
+
+    </div>
   </div>
-</div>
+
+  <div class="row my-5">
+    <div class="col col-md-8 mx-auto">
+
+        <div class="d-flex justify-content-between align-items-center border rounded border-secondary-subtle p-4 shadow">
+          <div>
+            <h3>Ads</h3>
+            <p>Programacion de una web responsive completa</p>
+          </div>
+          <div>
+            <h2>400 €</h2>
+          </div>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="checkbox" name="checkbox2" formControlName="checkbox2" (change)="calculateTotal()">
+            <label class="form-check-label">Anadir</label>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+  <div class="row my-5">
+    <div class="col col-md-8 mx-auto">
+
+        <div class="d-flex justify-content-between align-items-center border rounded border-secondary-subtle p-4 shadow">
+          <div>
+            <h3>Web</h3>
+            <p>Programacion de una web responsive completa</p>
+          </div>
+          <div>
+            <h2>500 €</h2>
+          </div>
+          <div class="form-group form-check d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex ">
+              <input class="form-check-input" type="checkbox" name="checkbox3" formControlName="checkbox3" (change)="calculateTotal()">
+              <label class="form-check-label">Anadir</label>
+            </div>
+
+            <div  *ngIf="form.value.checkbox3 === true">
+              <app-panel />
+
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-md-8 mx-auto text-end">
+      <h3>Precio presupostado: {{budgetService.total}} €</h3>
+    </div>
+  </div>
+
+</form>
+
 
 

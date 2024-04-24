@@ -1,0 +1,51 @@
+<form class="form-group" [formGroup]="form">
+
+
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-between">
+        <div>
+          <span>Numero de paginas</span>
+        </div>
+        <div>
+          <button class="btn btn-secondary btn-small" type="button" (click)="decrementingPages()">
+            <i class="fas fa-minus"></i>
+          </button>
+          <input class="input-pag" type="number"  value="{{form.value.numberPages}}" name="numberPages" formControlName="numberPages">
+          <button class="btn btn-secondary btn-small" type="button" (click)="incrementingPages()">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-between">
+        <div>
+          <span>Numero de lenguages</span>
+        </div>
+        <div>
+          <button class="btn btn-secondary btn-small" type="button" (click)="decrementingLang()">
+            <i class="fas fa-minus"></i>
+          </button>
+          <input class="input-pag" type="number" value="{{form.value.numberLanguage}}" name="numberLanguage" formControlName="numberLanguage">
+          <button class="btn btn-secondary btn-small" type="button" (click)="incrementingLang()">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</form>
+
+
+
+
