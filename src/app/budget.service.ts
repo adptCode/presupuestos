@@ -14,7 +14,6 @@ export class BudgetService {
   total = 0
 
   calculateBudget() {
-
     this.total = this.totalBudget + this.totalPage
 
     console.log(this.total)
