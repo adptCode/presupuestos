@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { BudgetService } from '../../budget.service';
+
 
 @Component({
   selector: 'app-panel',
@@ -14,55 +14,45 @@ import { BudgetService } from '../../budget.service';
 })
 export class PanelComponent {
 
+  constructor(public budgetService: BudgetService) {}
 
-  public form: FormGroup = new FormGroup({
-    numberPages: new FormControl(1, Validators.min(1)),
-    numberLanguage : new FormControl(1, Validators.min(1)),
-  });
+  pages:string = 'pages'
+  language:string = 'language'
+  countPages:number = 1
+  countLanguage:number = 1
+  total:number = 0
+  validPages = new FormControl(this.countPages)
+  validLanguage = new FormControl(this.countLanguage)
 
-  total = 0
-
-  decrementingPages() {
-    if(this.form.value.numberPages > 1) {
-      this.form.value.numberPages --
+  add(prop:string) {
+    if(prop === this.pages) {
+      this.countPages ++
+      this.calculateTotalPage()
     }
-    this.calculateTotal()
-  }
-
-  incrementingPages() {
-    this.form.value.numberPages ++
-    this.calculateTotal()
-  }
-
-  decrementingLang() {
-    if(this.form.value.numberLanguage > 1) {
-      this.form.value.numberLanguage --
+    if(prop === this.language) {
+      this.countLanguage ++
+      this.calculateTotalPage()
     }
-    this.calculateTotal()
+
   }
 
-  incrementingLang() {
-    this.form.value.numberLanguage ++
-    this.calculateTotal()
+  rest(prop:string) {
+    if(prop === this.pages && this.countPages > 1) {
+      this.countPages --
+      this.calculateTotalPage()
+    }
+    if(prop === this.language && this.countLanguage > 1) {
+      this.countLanguage --
+      this.calculateTotalPage()
+    }
   }
 
-  constructor(private budgetService: BudgetService) {}
-
-  calculateTotal() {
-
-    this.total = this.form.value.numberPages * this.form.value.numberLanguage * 30;
-    //console.log(this.total)
+  calculateTotalPage() {
+    this.total = 0
+    if(this.countPages > 1 || this.countLanguage > 1) {
+      this.total = this.countPages * this.countLanguage * 30
+    }
     this.budgetService.totalPage = this.total
     this.budgetService.calculateBudget()
-
   }
-
-
-
-
-
-
-
-
-
 }

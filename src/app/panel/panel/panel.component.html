@@ -1,5 +1,4 @@
-<form class="form-group" [formGroup]="form">
-
+<form class="form-group">
 
   <div class="row">
     <div class="col">
@@ -8,11 +7,11 @@
           <span>Numero de paginas</span>
         </div>
         <div>
-          <button class="btn btn-secondary btn-small" type="button" (click)="decrementingPages()">
+          <button class="btn btn-secondary btn-small" type="button" (click)="rest(pages)">
             <i class="fas fa-minus"></i>
           </button>
-          <input class="input-pag" type="number"  value="{{form.value.numberPages}}" name="numberPages" formControlName="numberPages">
-          <button class="btn btn-secondary btn-small" type="button" (click)="incrementingPages()">
+          <input class="input-pag" type="number" [formControl]="validPages" [value]="countPages" readonly >
+          <button class="btn btn-secondary btn-small" type="button" (click)="add(pages)">
             <i class="fas fa-plus"></i>
           </button>
         </div>
@@ -27,23 +26,17 @@
           <span>Numero de lenguages</span>
         </div>
         <div>
-          <button class="btn btn-secondary btn-small" type="button" (click)="decrementingLang()">
+          <button class="btn btn-secondary btn-small" type="button" (click)="rest(language)">
             <i class="fas fa-minus"></i>
           </button>
-          <input class="input-pag" type="number" value="{{form.value.numberLanguage}}" name="numberLanguage" formControlName="numberLanguage">
-          <button class="btn btn-secondary btn-small" type="button" (click)="incrementingLang()">
+          <input class="input-pag" type="number" [formControl]="validLanguage" [value]="countLanguage" readonly>
+          <button class="btn btn-secondary btn-small" type="button" (click)="add(language)">
             <i class="fas fa-plus"></i>
           </button>
         </div>
       </div>
     </div>
   </div>
-
-
-
-
-
-
 </form>
 
 

@@ -34,7 +34,9 @@ export class HomeComponent {
     }
     if(this.form.value.checkbox3) {
       this.total += 500
+      this.budgetService.calculateBudget()
     } else {
+      this.budgetService.totalBudget = this.total
       this.budgetService.totalPage = 0
     }
 
