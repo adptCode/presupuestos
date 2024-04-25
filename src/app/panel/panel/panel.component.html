@@ -2,16 +2,19 @@
 
   <div class="row">
     <div class="col">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <i (click)="passParam('Numero de paginas','Anade las paginas que tendra tu proiecto. El coste de cada pagina es 30 €')" class="fas fa-info-circle" data-bs-toggle="modal" data-bs-target="#modal"></i>
+        </div>
         <div>
           <span>Numero de paginas</span>
         </div>
         <div>
-          <button class="btn btn-secondary btn-small" type="button" (click)="rest(pages)">
+          <button class="btn btn-outline-secondary btn-small" type="button" (click)="rest(pages)">
             <i class="fas fa-minus"></i>
           </button>
           <input class="input-pag" type="number" [formControl]="validPages" [value]="countPages" readonly >
-          <button class="btn btn-secondary btn-small" type="button" (click)="add(pages)">
+          <button class="btn btn-outline-secondary btn-small" type="button" (click)="add(pages)">
             <i class="fas fa-plus"></i>
           </button>
         </div>
@@ -21,16 +24,19 @@
 
   <div class="row">
     <div class="col">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <i (click)="passParam('Numero de idioma','Anade los idioma que tendra tu proiecto. El coste de cada idioma es 30 €')"  class="fas fa-info-circle" data-bs-toggle="modal" data-bs-target="#modal"></i>
+        </div>
         <div>
           <span>Numero de lenguages</span>
         </div>
         <div>
-          <button class="btn btn-secondary btn-small" type="button" (click)="rest(language)">
+          <button class="btn btn-outline-secondary btn-small" type="button" (click)="rest(language)">
             <i class="fas fa-minus"></i>
           </button>
           <input class="input-pag" type="number" [formControl]="validLanguage" [value]="countLanguage" readonly>
-          <button class="btn btn-secondary btn-small" type="button" (click)="add(language)">
+          <button class="btn btn-outline-secondary btn-small" type="button" (click)="add(language)">
             <i class="fas fa-plus"></i>
           </button>
         </div>
@@ -38,6 +44,10 @@
     </div>
   </div>
 </form>
+
+
+
+<app-modal [titulo]="titulo" [texto]="texto"/>
 
 
 

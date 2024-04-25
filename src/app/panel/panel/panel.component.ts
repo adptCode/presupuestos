@@ -3,12 +3,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { BudgetService } from '../../budget.service';
+import { ModalComponent } from '../../modal/modal.component';
 
 
 @Component({
   selector: 'app-panel',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, ModalComponent],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
@@ -23,6 +24,9 @@ export class PanelComponent {
   total:number = 0
   validPages = new FormControl(this.countPages)
   validLanguage = new FormControl(this.countLanguage)
+  titulo:string = ""
+  texto:string = ""
+
 
   add(prop:string) {
     if(prop === this.pages) {
@@ -55,4 +59,11 @@ export class PanelComponent {
     this.budgetService.totalPage = this.total
     this.budgetService.calculateBudget()
   }
+
+  passParam(titulo:string, texto:string) {
+    this.titulo = titulo
+    this.texto = texto
+  }
+
+  
 }
