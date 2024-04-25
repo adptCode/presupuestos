@@ -1,9 +1,9 @@
 <form class="form-group">
 
-  <div class="row">
+  <div class="row ms-auto">
     <div class="col">
       <div class="d-flex justify-content-between align-items-center">
-        <div>
+        <div class="mx-2">
           <i (click)="passParam('Numero de paginas','Anade las paginas que tendra tu proiecto. El coste de cada pagina es 30 €')" class="fas fa-info-circle" data-bs-toggle="modal" data-bs-target="#modal"></i>
         </div>
         <div>
@@ -22,14 +22,14 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row ms-auto">
     <div class="col">
       <div class="d-flex justify-content-between align-items-center">
-        <div>
+        <div class="mx-2">
           <i (click)="passParam('Numero de idioma','Anade los idioma que tendra tu proiecto. El coste de cada idioma es 30 €')"  class="fas fa-info-circle" data-bs-toggle="modal" data-bs-target="#modal"></i>
         </div>
         <div>
-          <span>Numero de lenguages</span>
+          <span>Numero de idiomas</span>
         </div>
         <div>
           <button class="btn btn-outline-secondary btn-small" type="button" (click)="rest(language)">

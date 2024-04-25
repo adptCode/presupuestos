@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormControl, FormGroup, Form, Validators } from '@angular/forms';
 import { PanelComponent } from '../panel/panel/panel.component';
 import { BudgetService } from '../budget.service';
+import { FormularioComponent } from '../formulario/formulario.component';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, PanelComponent],
+  imports: [ReactiveFormsModule, CommonModule, PanelComponent, FormularioComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
