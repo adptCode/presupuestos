@@ -17,15 +17,17 @@ export class PanelComponent {
 
   constructor(public budgetService: BudgetService) {}
 
-  pages:string = 'pages'
-  language:string = 'language'
-  countPages:number = 1
-  countLanguage:number = 1
-  total:number = 0
-  validPages = new FormControl(this.countPages)
-  validLanguage = new FormControl(this.countLanguage)
-  titulo:string = ""
-  texto:string = ""
+  pages:string = 'pages';
+  language:string = 'language';
+  countPages:number = 1;
+  countLanguage:number = 1;
+  total:number = 0;
+  validPages = new FormControl(this.countPages);
+  validLanguage = new FormControl(this.countLanguage);
+  titulo:string = "";
+  texto:string = "";
+  webOptions: {pages:number,language:number}[] = [{pages:1, language:1}]
+
 
 
   add(prop:string) {
@@ -58,6 +60,8 @@ export class PanelComponent {
     }
     this.budgetService.totalPage = this.total
     this.budgetService.calculateBudget()
+    this.updateWebOptions()
+    console.log(this.webOptions)
   }
 
   passParam(titulo:string, texto:string) {
@@ -65,5 +69,9 @@ export class PanelComponent {
     this.texto = texto
   }
 
-  
+  updateWebOptions() {
+    this.webOptions[0] = {pages:this.countPages, language:this.countLanguage}
+  }
+
+
 }

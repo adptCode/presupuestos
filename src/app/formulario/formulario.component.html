@@ -1,20 +1,49 @@
-<form class="form-inline border rounded  p-4 shadow">
+<form class="form-group form-inline border rounded  p-4 shadow" (submit)="agregarUsuario()" [formGroup]="formularioUser">
   <div class="row">
     <div class="mb-4">
       <h3>Solicitar presupuesto</h3>
     </div>
 
     <div class="col">
-      <input type="text" class="form-control mr-2" placeholder="Nome">
+      <input type="text" class="form-control mr-2" placeholder="Nombre" formControlName="nombre" minlength="5">
+      <div class="text-danger" [hidden]="formularioUser.value.nombre.valid || formularioUser.get('nombre')?.pristine ">
+        <p *ngIf="formularioUser.get('nombre')?.errors?.['required']">
+          El campo nombre es requerido
+        </p>
+        <p  *ngIf="formularioUser.get('nombre')?.errors?.['onlyLetter']">
+          El campo solo contiene letras
+        </p>
+        <p  *ngIf="formularioUser.get('nombre')?.errors?.['minlength']">
+        El campo debe tener minimo 5
+        </p>
+      </div>
     </div>
     <div class="col">
-      <input type="text" class="form-control mr-2" placeholder="Telefono">
+      <input type="number" class="form-control mr-2" placeholder="Telefono" formControlName="telefono">
+      <div  class="text-danger" [hidden]="formularioUser.value.telefono.valid || formularioUser.get('telefono')?.pristine ">
+        <p  *ngIf="formularioUser.get('telefono')?.errors?.['required']">
+          El campo telefono es requerido
+        </p>
+        <p  *ngIf="formularioUser.get('telefono')?.errors?.['onlyNumber']">
+          El campo telefono es numerico de 9
+        </p>
+      </div>
     </div>
     <div class="col">
-      <input type="email" class="form-control mr-2" placeholder="Email">
+      <input type="email" class="form-control mr-2" placeholder="Email" formControlName="email">
+      <div  class="text-danger" [hidden]="formularioUser.value.email.valid || formularioUser.get('email')?.pristine">
+        <p  *ngIf="formularioUser.get('email')?.errors?.['required']">
+          El campo email es requerido
+        </p>
+        <p  *ngIf="formularioUser.get('email')?.errors?.['emailCustom']">
+          email invalida
+        </p>
+      </div>
     </div>
-    <div class="col d-grid gap-2">
+    <div class="col">
       <button type="submit" class="btn btn-success">Solicitar presupuesto</button>
     </div>
   </div>
 </form>
+
+
