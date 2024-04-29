@@ -35,9 +35,6 @@ export class FormularioComponent implements OnInit {
     } else {
       throw new Error('validation fail')
     }
-
-
-
   }
 
 }

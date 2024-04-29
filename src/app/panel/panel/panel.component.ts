@@ -61,7 +61,6 @@ export class PanelComponent {
     this.budgetService.totalPage = this.total
     this.budgetService.calculateBudget()
     this.updateWebOptions()
-    console.log(this.webOptions)
   }
 
   passParam(titulo:string, texto:string) {
@@ -71,6 +70,7 @@ export class PanelComponent {
 
   updateWebOptions() {
     this.webOptions[0] = {pages:this.countPages, language:this.countLanguage}
+    console.log(this.webOptions)
   }
 
 
