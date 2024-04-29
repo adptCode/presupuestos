@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { BudgetService } from '../../budget.service';
@@ -26,7 +26,7 @@ export class PanelComponent {
   validLanguage = new FormControl(this.countLanguage);
   titulo:string = "";
   texto:string = "";
-  webOptions: {pages:number,language:number}[] = [{pages:1, language:1}]
+  //webOptions: {pages:number,language:number}[] = [{pages:1, language:1}]
 
 
 
@@ -56,11 +56,12 @@ export class PanelComponent {
   calculateTotalPage() {
     this.total = 0
     if(this.countPages > 1 || this.countLanguage > 1) {
-      this.total = this.countPages * this.countLanguage * 30
+      this.total = this.countPages * this.countLanguage * 30;
     }
     this.budgetService.totalPage = this.total
-    this.budgetService.calculateBudget()
-    this.updateWebOptions()
+    this.budgetService.calculateBudget();
+    this.budgetService.agregatePageOptions(this.countPages, this.countLanguage)
+    //this.updateWebOptions()
   }
 
   passParam(titulo:string, texto:string) {
@@ -68,10 +69,12 @@ export class PanelComponent {
     this.texto = texto
   }
 
-  updateWebOptions() {
+  /*updateWebOptions() {
     this.webOptions[0] = {pages:this.countPages, language:this.countLanguage}
-    console.log(this.webOptions)
-  }
+    let pageJson = {pages:this.countPages, language:this.countLanguage}
+
+    this.budgetService.agregatePageOptions(pageJson)
+  }*/
 
 
 }
