@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col">
+    <h3>Presupuestos en curso:</h3>
+  </div>
+  <div class="col">
+    <div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-light" type="submit">Fecha</button>
+        <button class="btn btn-light" type="submit">Importe</button>
+        <button class="btn btn-light" type="submit">Nombre</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div *ngFor="let item of presupuestos">
+<div class="row my-3 border d-flex justify-content-between">
+  <div class="col d-flex flex-column text-center">
+    <div><h2>{{item.nombre}}</h2></div>
+    <div><p>{{item.telefono}}</p></div>
+    <div><p>{{item.correo}}</p></div>
+  </div>
+  <div class="col d-flex flex-column text-center">
+    <div><h5>Servicios contratado:</h5></div>
+    <div>
+      <ul>
+        <li *ngFor="let service of item.service | keyvalue ">
+            {{service.key}}  <span *ngIf="service.key === 'Web' "> - ({{item.pageOption.pages}} paginas, {{item.pageOption.language}} idiomas)</span>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col d-flex flex-column text-center">
+    <div><h3>Total:</h3></div>
+    <div><h2>500$</h2></div>
+  </div>
+</div>
+</div>

@@ -1,8 +1,8 @@
+import { BudgetService } from './../../budget.service';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
-import { BudgetService } from '../../budget.service';
 import { ModalComponent } from '../../modal/modal.component';
 
 
@@ -15,7 +15,11 @@ import { ModalComponent } from '../../modal/modal.component';
 })
 export class PanelComponent {
 
-  constructor(public budgetService: BudgetService) {}
+  constructor(public budgetService: BudgetService) {
+    this.budgetService.agregatePageOptions(this.countPages, this.countLanguage)
+  }
+
+
 
   pages:string = 'pages';
   language:string = 'language';

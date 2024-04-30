@@ -31,16 +31,33 @@ export class BudgetService {
      this.pageOption = pages
   }*/
   agregatePageOptions(pages:number,language:number) {
-    
+
     this.pageOption = {pages,language}
   }
 
   agregateUsuario(user:any) {
 
-    let userDefined = {...user, service: this.service, pageOption: this.pageOption, total: this.total}
+
+    let userDefined = {
+                        ...user,
+                        service: this.service,
+                        total: this.total,
+                        date: new Date(),
+                      };
+
+    if(userDefined.service.web) {
+      userDefined.pageOption = this.pageOption
+    }
     this.presupuestos.push(userDefined)
     console.log(this.presupuestos)
+
+    this.total = 0
+  }
+
+  getPresupuestos() {
+    return this.presupuestos
   }
 
 
 }
+

@@ -4,12 +4,13 @@ import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angula
 import { PanelComponent } from '../panel/panel/panel.component';
 import { BudgetService } from '../budget.service';
 import { CustomValidators } from '../validations';
+import { BudgetListComponent } from '../budget-list/budget-list.component';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, PanelComponent],
+  imports: [ReactiveFormsModule, CommonModule, PanelComponent, BudgetListComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -18,9 +19,9 @@ export class HomeComponent {
   constructor(public budgetService: BudgetService) {}
 
   objectoServicios: any = {};
-  servicios: any = [];
+  //servicios: any = [];
   users: any[] = [];
-  user = {name: '',telefono: '',correo: ''}
+  user = {nombre: '',telefono: '',correo: ''}
   total: number = 0;
   service:any = {seo:false, ads:false, web:false}
 
@@ -48,7 +49,7 @@ export class HomeComponent {
 
   calculateTotal() {
     this.total = 0;
-    this.servicios = [];
+    //this.servicios = [];
 
     if(this.service.seo) {
       this.total += 300
@@ -95,20 +96,17 @@ export class HomeComponent {
 
   agregarUsuario() {
     if(this.formularioUser.valid) {
-      this.user.name = this.formularioUser.value.nombre;
+      this.user.nombre = this.formularioUser.value.nombre;
       this.user.telefono = this.formularioUser.value.telefono;
       this.user.correo = this.formularioUser.value.email;
-      this.budgetService.agregateUsuario(this.user)
-
-
+      this.budgetService.agregateUsuario(this.user);
       this.form.reset()
       this.formularioUser.reset()
-      
-
 
     } else {
       throw new Error('validation fail')
     }
+
   }
 
 

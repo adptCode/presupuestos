@@ -87,7 +87,9 @@
   </div>
 </form>
 
-<div class="my-5" *ngIf="budgetService.total > 0">
+
+<!--*ngIf="budgetService.total > 0" -->
+<div class="my-5" >
   <form class="form-group form-inline border rounded  p-4 shadow" (submit)="agregarUsuario()" [formGroup]="formularioUser">
     <div class="row">
       <div class="mb-4">
@@ -135,6 +137,12 @@
       </div>
     </div>
   </form>
+</div>
+
+
+<!--*ngIf="budgetService.presupuestos.length > 0" -->
+<div class="my-5">
+  <app-budget-list/>
 </div>
 
 
