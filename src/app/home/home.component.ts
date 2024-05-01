@@ -8,6 +8,7 @@ import { BudgetListComponent } from '../budget-list/budget-list.component';
 
 
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -47,14 +48,15 @@ export class HomeComponent {
 
   calculateTotal() {
     this.total = 0;
+
     if(this.service.seo) {
-      this.total += 300
+      this.total += 300;
     }
     if(this.service.ads) {
-      this.total += 400
+      this.total += 400;
     }
     if(this.service.web) {
-      this.total += 500
+      this.total += 500;
     } else {
       this.budgetService.totalPage = 0;
       this.budgetService.calculateBudget()
@@ -62,6 +64,8 @@ export class HomeComponent {
     this.budgetService.totalBudget = this.total;
     this.budgetService.calculateBudget();
     this.budgetService.agregateService(this.service);
+
+
   }
 
   agregarUsuario() {
@@ -70,12 +74,14 @@ export class HomeComponent {
       this.user.telefono = this.formularioUser.value.telefono;
       this.user.correo = this.formularioUser.value.email;
       this.budgetService.agregateUsuario(this.user);
+
       this.form.reset()
       this.formularioUser.reset()
     } else {
       throw new Error('validation fail')
     }
   }
+
 
 }
 

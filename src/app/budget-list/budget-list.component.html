@@ -5,7 +5,12 @@
   <div class="col">
     <div>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="name" [(ngModel)]="name" (change)="filterByName()">
+        <div class="input-group">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="name" [(ngModel)]="name">
+          <button class="btn btn-outline-secondary" type="button" (click)="filterByName()">
+              <i class="fa fa-search"></i>
+          </button>
+      </div>
         <button class="btn btn-light" type="submit" (click)="orderDate()">Fecha</button>
         <button class="btn btn-light" type="submit" (click)="orderTotal()">Importe</button>
         <button class="btn btn-light" type="submit" (click)="orderName()">Nombre</button>

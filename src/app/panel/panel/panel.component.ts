@@ -6,6 +6,7 @@ import { FormControl } from '@angular/forms';
 import { ModalComponent } from '../../modal/modal.component';
 
 
+
 @Component({
   selector: 'app-panel',
   standalone: true,
@@ -30,9 +31,6 @@ export class PanelComponent {
   validLanguage = new FormControl(this.countLanguage);
   titulo:string = "";
   texto:string = "";
-  //webOptions: {pages:number,language:number}[] = [{pages:1, language:1}]
-
-
 
   add(prop:string) {
     if(prop === this.pages) {
@@ -43,7 +41,6 @@ export class PanelComponent {
       this.countLanguage ++
       this.calculateTotalPage()
     }
-
   }
 
   rest(prop:string) {
@@ -65,20 +62,11 @@ export class PanelComponent {
     this.budgetService.totalPage = this.total
     this.budgetService.calculateBudget();
     this.budgetService.agregatePageOptions(this.countPages, this.countLanguage)
-    //this.updateWebOptions()
   }
 
   passParam(titulo:string, texto:string) {
     this.titulo = titulo
     this.texto = texto
   }
-
-  /*updateWebOptions() {
-    this.webOptions[0] = {pages:this.countPages, language:this.countLanguage}
-    let pageJson = {pages:this.countPages, language:this.countLanguage}
-
-    this.budgetService.agregatePageOptions(pageJson)
-  }*/
-
 
 }
