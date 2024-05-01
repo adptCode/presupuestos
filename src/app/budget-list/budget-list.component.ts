@@ -18,6 +18,12 @@ export class BudgetListComponent implements OnInit {
     this.presupuestos = this.budgetService.getPresupuestos();
   }
 
+  filterServices(services: any): any[] {
+    return Object.keys(services)
+      .filter(key => services[key] === true)
+      .map(key => ({ key, value: services[key] }));
+  }
+
 
 
 

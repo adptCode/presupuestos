@@ -23,9 +23,10 @@
   <div class="col d-flex flex-column text-center">
     <div><h5>Servicios contratado:</h5></div>
     <div>
-      <ul>
-        <li *ngFor="let service of item.service | keyvalue ">
-            {{service.key}}  <span *ngIf="service.key === 'Web' "> - ({{item.pageOption.pages}} paginas, {{item.pageOption.language}} idiomas)</span>
+      <ul class="list-group list-group-flush">
+        <li *ngFor="let service of filterServices(item.service)" class="list-group-item">
+            {{service.key}}
+            <span *ngIf="service.key === 'web' "> - ({{item.pageOption.pages}} paginas, {{item.pageOption.language}} idiomas)</span>
 
         </li>
       </ul>
@@ -33,7 +34,7 @@
   </div>
   <div class="col d-flex flex-column text-center">
     <div><h3>Total:</h3></div>
-    <div><h2>500$</h2></div>
+    <div><h2>{{item.total}}  €</h2></div>
   </div>
 </div>
 </div>
