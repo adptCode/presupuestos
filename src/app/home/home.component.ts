@@ -5,6 +5,8 @@ import { PanelComponent } from '../panel/panel/panel.component';
 import { BudgetService } from '../budget.service';
 import { CustomValidators } from '../validations';
 import { BudgetListComponent } from '../budget-list/budget-list.component';
+import { Router } from '@angular/router';
+
 
 
 
@@ -16,9 +18,13 @@ import { BudgetListComponent } from '../budget-list/budget-list.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  constructor(public budgetService: BudgetService) {}
+  constructor(public budgetService: BudgetService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.navigate(['/home'], { queryParams: {} });
+  }
 
   objectoServicios: any = {};
   users: any[] = [];
@@ -65,7 +71,6 @@ export class HomeComponent {
     this.budgetService.calculateBudget();
     this.budgetService.agregateService(this.service);
 
-
   }
 
   agregarUsuario() {
@@ -82,6 +87,42 @@ export class HomeComponent {
     }
   }
 
+  updateURL() {
+
+    let queryParams: any = {};
+
+    if (this.service.seo) {
+      queryParams['CampaignSeo'] = true;
+    } else {
+      queryParams['CampaignSeo'] = null;
+    }
+
+    if (this.service.ads) {
+      queryParams['CampaignAds'] = true;
+    } else {
+      queryParams['CampaignAds'] = null;
+    }
+
+    if (this.service.web) {
+      queryParams['WebPage'] = true;
+      queryParams['pages'] = 1 || this.budgetService.pageOption.pages;
+      queryParams['lang'] = 1 || this.budgetService.pageOption.language;
+    } else {
+      queryParams['WebPage'] = null;
+      queryParams['pages'] = null;
+      queryParams['lang'] = null;
+    }
+
+    this.router.navigate([], {
+      queryParams: queryParams,
+      queryParamsHandling: 'merge'
+    });
+  }
+
+  resetURL() {
+    this.router.navigate(['/home'], { queryParams: {} });
+    this.budgetService.resetOptions()
+  }
 
 }
 
