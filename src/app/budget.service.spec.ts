@@ -14,6 +14,8 @@ describe('BudgetService', () => {
     expect(service).toBeTruthy();
   });
 
+  //TEST AGREGADO
+  
   it('total should be equal 1320', () => {
     service.totalBudget = 1200
     service.totalPage = 120

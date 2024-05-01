@@ -26,10 +26,6 @@ export class BudgetService {
     this.service = {...servicio}
   }
 
-  /*agregatePageOptions( pages: any) {
-    this.pageOption = {}
-     this.pageOption = pages
-  }*/
   agregatePageOptions(pages:number,language:number) {
 
     this.pageOption = {pages,language}

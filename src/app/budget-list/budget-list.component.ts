@@ -30,7 +30,7 @@ export class BudgetListComponent implements OnInit {
   filterByName() {
     if(this.name !== '') {
       this.presupuestos = this.budgetService.getPresupuestos().filter(presupuesto => {
-        return presupuesto.nombre === this.name
+        return presupuesto.nombre.includes(this.name)
       })
     } else {
       this.presupuestos = this.budgetService.getPresupuestos();
