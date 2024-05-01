@@ -14,9 +14,8 @@ export class BudgetListComponent implements OnInit {
 
   presupuestos: any[] = [];
   name: string = '';
-  orderD: boolean = false
-  //filteredPreupuestos: any [] = [];
-  public budgetService = inject(BudgetService)
+  orderD: boolean = false;
+  public budgetService = inject(BudgetService);
 
   ngOnInit(): void {
     this.presupuestos = this.budgetService.getPresupuestos();
@@ -66,12 +65,5 @@ export class BudgetListComponent implements OnInit {
       this.presupuestos.sort((a,b) => b.nombre.localeCompare(a.nombre))
     }
   }
-
-
-
-
-
-
-
 
 }

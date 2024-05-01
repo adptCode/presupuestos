@@ -7,6 +7,7 @@ import { CustomValidators } from '../validations';
 import { BudgetListComponent } from '../budget-list/budget-list.component';
 
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -18,16 +19,11 @@ export class HomeComponent {
 
   constructor(public budgetService: BudgetService) {}
 
-
-
   objectoServicios: any = {};
-  //servicios: any = [];
   users: any[] = [];
   user = {nombre: '',telefono: '',correo: ''}
   total: number = 0;
   service:any = {seo:false, ads:false, web:false}
-
-
 
   public form: FormGroup = new FormGroup({
     checkbox1: new FormControl(false),
@@ -51,8 +47,6 @@ export class HomeComponent {
 
   calculateTotal() {
     this.total = 0;
-    //this.servicios = [];
-
     if(this.service.seo) {
       this.total += 300
     }
@@ -65,35 +59,9 @@ export class HomeComponent {
       this.budgetService.totalPage = 0;
       this.budgetService.calculateBudget()
     }
-
     this.budgetService.totalBudget = this.total;
     this.budgetService.calculateBudget();
-    this.budgetService.agregateService(this.service)
-
-
-    /*if (this.form.value.checkbox1) {
-      this.total += 300;
-      this.servicios.push('Seo');
-    }
-    if (this.form.value.checkbox2) {
-      this.total += 400;
-      this.servicios.push('Ads');
-    }
-    if (this.form.value.checkbox3) {
-      this.total += 500;
-      this.servicios.push('Web');
-    }
-
-    this.budgetService.totalBudget = this.total;
-    this.budgetService.calculateBudget();
-
-    if (!this.form.value.checkbox3) {
-      this.budgetService.totalPage = 0;
-      this.budgetService.calculateBudget()
-    }
-    this.budgetService.agregateServiced(this.servicios)
-    //this.budgetService.agregateServiced(this.servicios)
-    //console.log(this.servicios)*/
+    this.budgetService.agregateService(this.service);
   }
 
   agregarUsuario() {
@@ -104,29 +72,10 @@ export class HomeComponent {
       this.budgetService.agregateUsuario(this.user);
       this.form.reset()
       this.formularioUser.reset()
-
     } else {
       throw new Error('validation fail')
     }
-
   }
-
-  /*getNombreErrors(): string {
-    const errors = this.formularioUser.get('nombre')?.errors;
-    if (!errors) return '';
-    if (errors['required']) {
-      return 'El campo nombre es requerido';
-    } else if (errors['onlyLetter']) {
-      return 'El campo solo contiene letras';
-    } else if (errors['minlength']) {
-      return `El campo debe tener minimo ${errors['minlength'].requiredLength} caracteres`;
-    }
-    return '';
-  }
-*/
-
-
-
 
 }
 

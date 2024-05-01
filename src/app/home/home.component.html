@@ -64,19 +64,11 @@
               <input class="form-check-input" type="checkbox" name="checkbox3" formControlName="checkbox3"  (change)="changeStatus()">
               <label class="form-check-label">Anadir</label>
             </div>
-
-
                 <div  *ngIf="form.value.checkbox3 === true">
                   <app-panel />
-
-
             </div>
-
-
           </div>
         </div>
-
-
     </div>
   </div>
 
@@ -88,59 +80,52 @@
 </form>
 
 
-<!--*ngIf="budgetService.total > 0" -->
-<div class="my-5" >
+
+<div *ngIf="budgetService.total > 0" class="my-5" >
   <form class="form-group form-inline border rounded  p-4 shadow needs-validation" (submit)="agregarUsuario()" [formGroup]="formularioUser">
     <div class="row">
       <div class="mb-4">
         <h3>Solicitar presupuesto</h3>
       </div>
-      
+
         <div class="col">
-        <input type="text" class="form-control mr-2" placeholder="Nombre" formControlName="nombre" minlength="5">
-        <div *ngIf="formularioUser.value.nombre" class="text-danger" [hidden]="formularioUser.value.nombre.valid || formularioUser.get('nombre')?.pristine ">
-          <p *ngIf="formularioUser.get('nombre')?.errors?.['required']">
-            El campo nombre es requerido
-          </p>
-          <p  *ngIf="formularioUser.get('nombre')?.errors?.['onlyLetter']">
-            El campo solo contiene letras
-          </p>
-          <p  *ngIf="formularioUser.get('nombre')?.errors?.['minlength']">
-          El campo debe tener minimo 5
-          </p>
-        </div>
-      </div>
-
-
-      <!-- <div class="col">
         <input type="text" class="form-control mr-2" placeholder="Nombre" formControlName="nombre"
-               [class.is-invalid]="formularioUser.get('nombre')?.invalid && (formularioUser.get('nombre')?.dirty || formularioUser.get('nombre')?.touched)">
-
+        [class.is-invalid]="formularioUser.get('nombre')?.invalid && (formularioUser.get('nombre')?.dirty || formularioUser.get('nombre')?.touched)">
+        <div *ngIf="formularioUser.value.nombre" class="text-danger" [hidden]="formularioUser.value.nombre.valid || formularioUser.get('nombre')?.pristine ">
+          <span *ngIf="formularioUser.get('nombre')?.errors?.['required']">
+            El campo nombre es requerido
+          </span>
+          <span  *ngIf="formularioUser.get('nombre')?.errors?.['onlyLetter']">
+            El campo solo contiene letras
+          </span>
+          <span  *ngIf="formularioUser.get('nombre')?.errors?.['minlength']">
+          El campo debe tener minimo 5
+          </span>
+        </div>
       </div>
-     -->
-
-
 
       <div class="col">
-        <input type="number" class="form-control mr-2" placeholder="Telefono" formControlName="telefono">
+        <input type="number" class="form-control mr-2" placeholder="Telefono" formControlName="telefono"
+        [class.is-invalid]="formularioUser.get('telefono')?.invalid && (formularioUser.get('telefono')?.dirty || formularioUser.get('telefono')?.touched)">
         <div *ngIf="formularioUser.value.telefono"  class="text-danger" [hidden]="formularioUser.value.telefono.valid || formularioUser.get('telefono')?.pristine ">
-          <p  *ngIf="formularioUser.get('telefono')?.errors?.['required']">
+          <span  *ngIf="formularioUser.get('telefono')?.errors?.['required']">
             El campo telefono es requerido
-          </p>
-          <p  *ngIf="formularioUser.get('telefono')?.errors?.['onlyNumber']">
+          </span>
+          <span  *ngIf="formularioUser.get('telefono')?.errors?.['onlyNumber']">
             El campo telefono es numerico de 9
-          </p>
+          </span>
         </div>
       </div>
       <div class="col">
-        <input type="email" class="form-control mr-2" placeholder="Email" formControlName="email">
+        <input type="email" class="form-control mr-2" placeholder="Email" formControlName="email"
+        [class.is-invalid]="formularioUser.get('email')?.invalid && (formularioUser.get('email')?.dirty || formularioUser.get('email')?.touched)">
         <div *ngIf="formularioUser.value.email"  class="text-danger" [hidden]="formularioUser.value.email.valid || formularioUser.get('email')?.pristine">
-          <p  *ngIf="formularioUser.get('email')?.errors?.['required']">
+          <span  *ngIf="formularioUser.get('email')?.errors?.['required']">
             El campo email es requerido
-          </p>
-          <p  *ngIf="formularioUser.get('email')?.errors?.['emailCustom']">
+          </span>
+          <span  *ngIf="formularioUser.get('email')?.errors?.['emailCustom']">
             email invalida
-          </p>
+          </span>
         </div>
       </div>
       <div class="col">
@@ -151,8 +136,7 @@
 </div>
 
 
-<!--*ngIf="budgetService.presupuestos.length > 0" -->
-<div class="my-5">
+<div *ngIf="budgetService.presupuestos.length > 0" class="my-5">
   <app-budget-list/>
 </div>
 
