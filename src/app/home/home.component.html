@@ -90,13 +90,13 @@
 
 <!--*ngIf="budgetService.total > 0" -->
 <div class="my-5" >
-  <form class="form-group form-inline border rounded  p-4 shadow" (submit)="agregarUsuario()" [formGroup]="formularioUser">
+  <form class="form-group form-inline border rounded  p-4 shadow needs-validation" (submit)="agregarUsuario()" [formGroup]="formularioUser">
     <div class="row">
       <div class="mb-4">
         <h3>Solicitar presupuesto</h3>
       </div>
-
-      <div class="col">
+      
+        <div class="col">
         <input type="text" class="form-control mr-2" placeholder="Nombre" formControlName="nombre" minlength="5">
         <div *ngIf="formularioUser.value.nombre" class="text-danger" [hidden]="formularioUser.value.nombre.valid || formularioUser.get('nombre')?.pristine ">
           <p *ngIf="formularioUser.get('nombre')?.errors?.['required']">
@@ -110,6 +110,17 @@
           </p>
         </div>
       </div>
+
+
+      <!-- <div class="col">
+        <input type="text" class="form-control mr-2" placeholder="Nombre" formControlName="nombre"
+               [class.is-invalid]="formularioUser.get('nombre')?.invalid && (formularioUser.get('nombre')?.dirty || formularioUser.get('nombre')?.touched)">
+
+      </div>
+     -->
+
+
+
       <div class="col">
         <input type="number" class="form-control mr-2" placeholder="Telefono" formControlName="telefono">
         <div *ngIf="formularioUser.value.telefono"  class="text-danger" [hidden]="formularioUser.value.telefono.valid || formularioUser.get('telefono')?.pristine ">

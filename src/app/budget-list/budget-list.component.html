@@ -5,16 +5,16 @@
   <div class="col">
     <div>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-light" type="submit">Fecha</button>
-        <button class="btn btn-light" type="submit">Importe</button>
-        <button class="btn btn-light" type="submit">Nombre</button>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="name" [(ngModel)]="name" (change)="filterByName()">
+        <button class="btn btn-light" type="submit" (click)="orderDate()">Fecha</button>
+        <button class="btn btn-light" type="submit" (click)="orderTotal()">Importe</button>
+        <button class="btn btn-light" type="submit" (click)="orderName()">Nombre</button>
       </form>
     </div>
   </div>
 </div>
 <div *ngFor="let item of presupuestos">
-<div class="row my-3 border d-flex justify-content-between">
+<div class="row my-3 border d-flex justify-content-between rounded  p-4 shadow">
   <div class="col d-flex flex-column text-center">
     <div><h2>{{item.nombre}}</h2></div>
     <div><p>{{item.telefono}}</p></div>

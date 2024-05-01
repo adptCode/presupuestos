@@ -42,7 +42,7 @@ export class BudgetService {
                         ...user,
                         service: this.service,
                         total: this.total,
-                        date: new Date(),
+                        date: new Date().getTime(),
                       };
 
     if(userDefined.service.web) {

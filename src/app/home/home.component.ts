@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PanelComponent } from '../panel/panel/panel.component';
@@ -17,6 +17,8 @@ import { BudgetListComponent } from '../budget-list/budget-list.component';
 export class HomeComponent {
 
   constructor(public budgetService: BudgetService) {}
+
+
 
   objectoServicios: any = {};
   //servicios: any = [];
@@ -109,6 +111,19 @@ export class HomeComponent {
 
   }
 
+  /*getNombreErrors(): string {
+    const errors = this.formularioUser.get('nombre')?.errors;
+    if (!errors) return '';
+    if (errors['required']) {
+      return 'El campo nombre es requerido';
+    } else if (errors['onlyLetter']) {
+      return 'El campo solo contiene letras';
+    } else if (errors['minlength']) {
+      return `El campo debe tener minimo ${errors['minlength'].requiredLength} caracteres`;
+    }
+    return '';
+  }
+*/
 
 
 
