@@ -50,3 +50,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Test exercici 4
 
 To view the unit test created for Exercise 4, go to budget.service.spec.ts.
+
+## Share URL
+
+To share the URL with the details of the quote, copy the URL once all the options of the quote have been selected. After the quote loads into memory, the URL will reset to update with the new quote being created.
