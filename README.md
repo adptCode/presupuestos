@@ -2,6 +2,27 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
 
+## Installation
+
+Steps to install the project:
+
+### Clone the repository
+
+Use the following commands to clone the repository and navigate to the project directory:
+
+git clone https://adptCode/presupuestos.git
+cd name-of-the-repository
+
+### Install dependencies
+
+In the root of the project, run:
+
+npm install
+
+### Environment Configuration
+
+Configure the necessary environment variables (if applicable). You can modify the .env files or the src/environments/environment.ts to set up development variables.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -25,3 +46,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Test exercici 4
+
+To view the unit test created for Exercise 4, go to budget.service.spec.ts.
+
+## Share URL
+
+To share the URL with the details of the quote, copy the URL once all the options of the quote have been selected. After the quote loads into memory, the URL will reset to update with the new quote being created.
