@@ -105,12 +105,13 @@ export class HomeComponent implements OnInit {
 
     if (this.service.web) {
       queryParams['WebPage'] = true;
-      queryParams['pages'] = 1 || this.budgetService.pageOption.pages;
-      queryParams['lang'] = 1 || this.budgetService.pageOption.language;
+      queryParams['pages'] =  this.budgetService.pageOption.pages || 1;
+      queryParams['lang'] =  this.budgetService.pageOption.language || 1;
     } else {
       queryParams['WebPage'] = null;
       queryParams['pages'] = null;
       queryParams['lang'] = null;
+      this.budgetService.resetOptions()
     }
 
     this.router.navigate([], {
