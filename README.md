@@ -2,24 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
 
-##Installation
+## Installation
 
 Steps to install the project:
 
-#Clone the repository
+# Clone the repository
 
 Use the following commands to clone the repository and navigate to the project directory:
 
 git clone https://adptCode/presupuestos.git
 cd name-of-the-repository
 
-#Install dependencies
+# Install dependencies
 
 In the root of the project, run:
 
 npm install
 
-#Environment Configuration
+# Environment Configuration
 
 Configure the necessary environment variables (if applicable). You can modify the .env files or the src/environments/environment.ts to set up development variables.
 
