@@ -20,17 +20,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public budgetService: BudgetService, private router: Router) {}
-
-  ngOnInit(): void {
-    this.router.navigate(['/home'], { queryParams: {} });
-  }
-
   objectoServicios: any = {};
   users: any[] = [];
   user = {nombre: '',telefono: '',correo: ''}
   total: number = 0;
   service:any = {seo:false, ads:false, web:false}
+
+  constructor(public budgetService: BudgetService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.navigate(['/home'], { queryParams: {} });
+  }
 
   public form: FormGroup = new FormGroup({
     checkbox1: new FormControl(false),
@@ -50,6 +50,10 @@ export class HomeComponent implements OnInit {
     this.form.value.checkbox3 ? this.service.web = true : this.service.web = false;
     this.calculateTotal()
 
+  }
+
+  hasError(controlName:string, errorType:string) {
+    return this.formularioUser.get(controlName)?.hasError(errorType) && this.formularioUser.get(controlName)?.touched
   }
 
   calculateTotal() {

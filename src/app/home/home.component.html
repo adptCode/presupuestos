@@ -13,19 +13,21 @@
     <div class="row my-5">
       <div class="col mx-auto">
 
-          <div [ngClass]="{'border border-success': form.value.checkbox1 === true}" class="d-flex justify-content-between align-items-center rounded  p-4 shadow">
-            <div>
-              <h3>Seo</h3>
-              <p>Programacion de una web responsive completa</p>
-            </div>
-            <div>
-              <h2>300 €</h2>
-            </div>
-            <div class="form-group form-check">
-              <input class="form-check-input" type="checkbox" name="checkbox1" formControlName="checkbox1"  (change)="changeStatus(); updateURL()">
-              <label class="form-check-label">Anadir</label>
-            </div>
+        <div [ngClass]="{'border border-success': form.value.checkbox1 === true}"
+          class="d-flex justify-content-between align-items-center rounded  p-4 shadow">
+          <div>
+            <h3>Seo</h3>
+            <p>Programacion de una web responsive completa</p>
           </div>
+          <div>
+            <h2>300 €</h2>
+          </div>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="checkbox" name="checkbox1" formControlName="checkbox1"
+              (change)="changeStatus(); updateURL()">
+            <label class="form-check-label">Anadir</label>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -33,19 +35,21 @@
     <div class="row my-5">
       <div class="col mx-auto">
 
-          <div [ngClass]="{'border border-success': form.value.checkbox2 === true}" class="d-flex justify-content-between align-items-center  rounded  p-4 shadow">
-            <div>
-              <h3>Ads</h3>
-              <p>Programacion de una web responsive completa</p>
-            </div>
-            <div>
-              <h2>400 €</h2>
-            </div>
-            <div class="form-group form-check">
-              <input class="form-check-input" type="checkbox" name="checkbox2" formControlName="checkbox2"  (change)="changeStatus(); updateURL()">
-              <label class="form-check-label">Anadir</label>
-            </div>
+        <div [ngClass]="{'border border-success': form.value.checkbox2 === true}"
+          class="d-flex justify-content-between align-items-center  rounded  p-4 shadow">
+          <div>
+            <h3>Ads</h3>
+            <p>Programacion de una web responsive completa</p>
           </div>
+          <div>
+            <h2>400 €</h2>
+          </div>
+          <div class="form-group form-check">
+            <input class="form-check-input" type="checkbox" name="checkbox2" formControlName="checkbox2"
+              (change)="changeStatus(); updateURL()">
+            <label class="form-check-label">Anadir</label>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -53,24 +57,26 @@
     <div class="row my-5">
       <div class="col mx-auto">
 
-          <div [ngClass]="{'border border-success': form.value.checkbox3 === true}" class="d-flex justify-content-between align-items-center rounded p-4 shadow">
-            <div>
-              <h3>Web</h3>
-              <p>Programacion de una web responsive completa</p>
+        <div [ngClass]="{'border border-success': form.value.checkbox3 === true}"
+          class="d-flex justify-content-between align-items-center rounded p-4 shadow">
+          <div>
+            <h3>Web</h3>
+            <p>Programacion de una web responsive completa</p>
+          </div>
+          <div>
+            <h2>500 €</h2>
+          </div>
+          <div class="form-group form-check d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex ">
+              <input class="form-check-input" type="checkbox" name="checkbox3" formControlName="checkbox3"
+                (change)="changeStatus(); updateURL()">
+              <label class="form-check-label">Anadir</label>
             </div>
-            <div>
-              <h2>500 €</h2>
-            </div>
-            <div class="form-group form-check d-flex flex-column justify-content-center align-items-center">
-              <div class="d-flex ">
-                <input class="form-check-input" type="checkbox" name="checkbox3" formControlName="checkbox3"  (change)="changeStatus(); updateURL()">
-                <label class="form-check-label">Anadir</label>
-              </div>
-                  <div  *ngIf="form.value.checkbox3 === true">
-                    <app-panel />
-              </div>
+            <div *ngIf="form.value.checkbox3 === true">
+              <app-panel />
             </div>
           </div>
+        </div>
       </div>
     </div>
 
@@ -83,51 +89,45 @@
 
 
 
-  <div *ngIf="budgetService.total > 0" class="my-5" >
-    <form class="form-group form-inline border rounded  p-4 shadow needs-validation" (submit)="agregarUsuario(); resetURL()" [formGroup]="formularioUser">
+  <div *ngIf="budgetService.total > 0" class="my-5">
+    <form class="form-group form-inline border rounded  p-4 shadow needs-validation"
+      (submit)="agregarUsuario(); resetURL()" [formGroup]="formularioUser">
       <div class="row">
         <div class="mb-4">
           <h3>Solicitar presupuesto</h3>
         </div>
-
-          <div class="col">
-          <input type="text" class="form-control mr-2" placeholder="Nombre" formControlName="nombre"
-          [class.is-invalid]="formularioUser.get('nombre')?.invalid && (formularioUser.get('nombre')?.dirty || formularioUser.get('nombre')?.touched)">
-          <div *ngIf="formularioUser.value.nombre" class="text-danger" [hidden]="formularioUser.value.nombre.valid || formularioUser.get('nombre')?.pristine ">
-            <span *ngIf="formularioUser.get('nombre')?.errors?.['Required']">
-              El campo nombre es requerido
-            </span>
-            <span  *ngIf="formularioUser.get('nombre')?.errors?.['onlyLetter']">
-              El campo solo contiene letras
-            </span> <br>
-            <span  *ngIf="formularioUser.get('nombre')?.errors?.['minlength']">
+        <div class="col">
+          <input
+            [ngClass]="{'is-invalid': hasError('nombre', 'required')||hasError('nombre', 'onlyLetter')||hasError('nombre', 'minlength')}"
+            type="text" class="form-control mr-2" placeholder="Nombre" formControlName="nombre">
+          <div class="text-danger" *ngIf="hasError('nombre', 'required')">
+            El campo nombre es requerido
+          </div>
+          <div class="text-danger" *ngIf="hasError('nombre', 'onlyLetter')">
+            El campo solo contiene letras
+          </div>
+          <div class="text-danger" *ngIf="hasError('nombre', 'minlength')">
             El campo debe tener minimo 5
-            </span>
-          </div>
-        </div>
-
-        <div class="col">
-          <input type="number" class="form-control mr-2" placeholder="Telefono" formControlName="telefono"
-          [class.is-invalid]="formularioUser.get('telefono')?.invalid && (formularioUser.get('telefono')?.dirty || formularioUser.get('telefono')?.touched)">
-          <div *ngIf="formularioUser.value.telefono"  class="text-danger" [hidden]="formularioUser.value.telefono.valid || formularioUser.get('telefono')?.pristine ">
-            <span  *ngIf="formularioUser.get('telefono')?.errors?.['required']">
-              El campo telefono es requerido
-            </span>
-            <span  *ngIf="formularioUser.get('telefono')?.errors?.['onlyNumber']">
-              El campo telefono es numerico de 9
-            </span>
           </div>
         </div>
         <div class="col">
-          <input type="email" class="form-control mr-2" placeholder="Email" formControlName="email"
-          [class.is-invalid]="formularioUser.get('email')?.invalid && (formularioUser.get('email')?.dirty || formularioUser.get('email')?.touched)">
-          <div *ngIf="formularioUser.value.email"  class="text-danger" [hidden]="formularioUser.value.email.valid || formularioUser.get('email')?.pristine">
-            <span  *ngIf="formularioUser.get('email')?.errors?.['required']">
-              El campo email es requerido
-            </span>
-            <span  *ngIf="formularioUser.get('email')?.errors?.['emailCustom']">
-              email invalida
-            </span>
+          <input [ngClass]="{'is-invalid': hasError('telefono', 'required')||hasError('telefono', 'onlyNumber')}"
+            type="number" min="0" class="form-control mr-2" placeholder="Telefono" formControlName="telefono">
+          <div class="text-danger" *ngIf="hasError('telefono', 'required')">
+            El campo telefono es requerido
+          </div>
+          <div class="text-danger" *ngIf="hasError('telefono', 'onlyNumber')">
+            El campo telefono es numerico de 9
+          </div>
+        </div>
+        <div class="col">
+          <input [ngClass]="{'is-invalid': hasError('email', 'required')||hasError('email', 'emailCustom')}"
+            type="email" class="form-control mr-2" placeholder="Email" formControlName="email">
+          <div class="text-danger" *ngIf="hasError('email', 'required')">
+            El campo email es requerido
+          </div>
+          <div class="text-danger" *ngIf="hasError('email', 'emailCustom')">
+            Email invalida
           </div>
         </div>
         <div class="col">
@@ -139,16 +139,8 @@
 
 
   <div *ngIf="budgetService.presupuestos.length > 0" class="my-5">
-    <app-budget-list/>
+    <app-budget-list />
   </div>
 
 
 </div>
-
-
-
-
-
-
-
-
