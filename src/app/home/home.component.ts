@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PanelComponent } from '../panel/panel/panel.component';
-import { BudgetService } from '../budget.service';
+import { BudgetService } from '../service/budget.service';
 import { CustomValidators } from '../validations';
 import { BudgetListComponent } from '../budget-list/budget-list.component';
 import { Router } from '@angular/router';

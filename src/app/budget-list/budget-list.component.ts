@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { BudgetService } from '../budget.service';
+import { BudgetService } from '../service/budget.service';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 

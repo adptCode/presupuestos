@@ -1,11 +1,11 @@
-import { BudgetService } from './../../budget.service';
+import { BudgetService } from '../../service/budget.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { ModalComponent } from '../../modal/modal.component';
 import { Router } from '@angular/router';
-//import { Subscription } from 'rxjs';
+
 
 
 
@@ -16,15 +16,12 @@ import { Router } from '@angular/router';
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
-export class PanelComponent  { //implements OnDestroy
+export class PanelComponent  {
 
-  //private resetSubscription: Subscription;
 
   constructor(public budgetService: BudgetService, private router: Router) {
     this.budgetService.agregatePageOptions(this.countPages, this.countLanguage);
-    //this.resetSubscription = this.budgetService.resetObservable.subscribe(() => {
-    //  this.resetLocalOptions();
-  //})
+
 }
 
 
@@ -93,9 +90,5 @@ export class PanelComponent  { //implements OnDestroy
     this.countLanguage = 1;
   }
 
-  /*ngOnDestroy() {
-
-    this.resetSubscription.unsubscribe();
-  }*/
 
 }

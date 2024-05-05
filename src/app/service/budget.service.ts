@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { UserBudget } from './interface/user-budget';
+import { UserBudget } from '../interface/user-budget';
 
-//import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -57,12 +56,10 @@ export class BudgetService {
     return this.presupuestos
   }
 
- //private resetSource = new Subject<void>();
-  //resetObservable = this.resetSource.asObservable();
 
   resetOptions() {
     this.pageOption = {};
-    //this.resetSource.next();
+
   }
 
 
