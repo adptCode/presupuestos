@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { ModalComponent } from '../../modal/modal.component';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+//import { Subscription } from 'rxjs';
 
 
 
@@ -16,15 +16,15 @@ import { Subscription } from 'rxjs';
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.scss'
 })
-export class PanelComponent implements OnDestroy {
+export class PanelComponent  { //implements OnDestroy
 
-  private resetSubscription: Subscription;
+  //private resetSubscription: Subscription;
 
   constructor(public budgetService: BudgetService, private router: Router) {
     this.budgetService.agregatePageOptions(this.countPages, this.countLanguage);
-    this.resetSubscription = this.budgetService.resetObservable.subscribe(() => {
-      this.resetLocalOptions();
-  })
+    //this.resetSubscription = this.budgetService.resetObservable.subscribe(() => {
+    //  this.resetLocalOptions();
+  //})
 }
 
 
@@ -93,9 +93,9 @@ export class PanelComponent implements OnDestroy {
     this.countLanguage = 1;
   }
 
-  ngOnDestroy() {
+  /*ngOnDestroy() {
 
     this.resetSubscription.unsubscribe();
-  }
+  }*/
 
 }

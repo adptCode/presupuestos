@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { UserBudget } from './interface/user-budget';
+
+//import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ export class BudgetService {
 
   constructor() {}
 
-  presupuestos: any[] = []
+  presupuestos: UserBudget[] = []
 
   totalBudget: number = 0;
   totalPage:number = 0
@@ -55,12 +57,12 @@ export class BudgetService {
     return this.presupuestos
   }
 
-  private resetSource = new Subject<void>();
-  resetObservable = this.resetSource.asObservable();
+ //private resetSource = new Subject<void>();
+  //resetObservable = this.resetSource.asObservable();
 
   resetOptions() {
     this.pageOption = {};
-    this.resetSource.next();
+    //this.resetSource.next();
   }
 
 
