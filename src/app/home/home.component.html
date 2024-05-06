@@ -91,7 +91,7 @@
 
   <div *ngIf="budgetService.total > 0" class="my-5">
     <form class="form-group form-inline border rounded  p-4 shadow needs-validation"
-      (submit)="agregarUsuario(); resetURL()" [formGroup]="formularioUser"> 
+      (submit)="agregarUsuario(); resetURL()" [formGroup]="formularioUser">
       <div class="row">
         <div class="mb-4">
           <h3>Solicitar presupuesto</h3>
@@ -107,7 +107,7 @@
             El campo solo contiene letras
           </div>
           <div class="text-danger" *ngIf="hasError('nombre', 'minlength')">
-            El campo debe tener minimo 5
+            El campo debe tener minimo 3
           </div>
         </div>
         <div class="col">
