@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   })
 
   public formularioUser: FormGroup = new FormGroup({
-    nombre: new FormControl('',[Validators.required, Validators.minLength(5), CustomValidators.onlyLetter]),
+    nombre: new FormControl('',[Validators.required, Validators.minLength(3), CustomValidators.onlyLetter]),
     telefono: new FormControl('',[Validators.required, CustomValidators.onlyNumber]),
     email: new FormControl('',[Validators.required, CustomValidators.emailCustom]),
 });
